@@ -67,7 +67,7 @@ When no ``s-maxage`` directive is available for the intermediarey cache, it will
 
 .. _`RFC 2616 spec`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9
 
-_`Expires`
+Expires
 ....
 
 **TODO**
