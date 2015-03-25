@@ -83,7 +83,7 @@ The value of the ``expires`` header should be a valid `RFC 1123`_ date format. I
 For more information on the ``expires`` header, go to `the specification`_
 
 .. _`RFC 1123`: http://tools.ietf.org/html/rfc1123#page-55
-.. _ `the specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21
+.. _`the specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21
 
 E-tag
 ....
@@ -98,7 +98,7 @@ An ``etag`` or ``entity-tag`` in full is a unique identifier for a requested res
 
 For more information on the ``expires`` header, go to `the etag specification`_
 
-.. _ `the etag specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19
+.. _`the etag specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19
 
 Pragma
 ....
