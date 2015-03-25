@@ -14,7 +14,7 @@ Cache-control
 
 .. code:: console
 
-    cache-control:<directives>
+    Cache-Control:<directives>
 
 The value for this cache header is a ``,``-separated list of cache response directives. Each directive is lower-cased.
 
@@ -29,7 +29,7 @@ A response marked as ``private`` can still be cached, for instance by the browse
 
 .. code:: console
 
-    cache-control:private
+    Cache-Control:private
 
 
 No-cache
@@ -39,7 +39,7 @@ The ``no-cache`` directive let's the caches know that the given response is not 
 
 .. code:: console
 
-    cache-control:no-cache
+    Cache-Control:no-cache
 
 Max-age
 +++++
@@ -52,7 +52,7 @@ The value of the ``max-age`` directive is in "deltaseconds", or the amount of se
 
 .. code:: console
 
-    cache-control:max-age=3600
+    Cache-Control:max-age=3600
 
 S-maxage
 +++++
@@ -63,7 +63,7 @@ When no ``s-maxage`` directive is available for the intermediarey cache, it will
 
 .. code:: console
 
-    cache-control:s-maxage=7200
+    Cache-Control:s-maxage=7200
 
 .. _`RFC 2616 spec`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9
 
@@ -78,7 +78,7 @@ The value of the ``expires`` header should be a valid `RFC 1123`_ date format. I
 
 .. code:: console
 
-    expires: Thu, 01 Dec 1994 16:00:00 GMT
+    Expires: Thu, 01 Dec 1994 16:00:00 GMT
 
 For more information on the ``expires`` header, go to `the specification`_
 
