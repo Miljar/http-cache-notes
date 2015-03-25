@@ -3,6 +3,11 @@ HTTP Cache notes
 
 .. contents:: Table of Contents
 
+Contributing
+-----
+
+**TODO**
+
 HTTP Cache Headers
 -----
 
@@ -80,7 +85,7 @@ The value of the ``expires`` header should be a valid `RFC 1123`_ date format. I
 
     Expires: Thu, 01 Dec 1994 16:00:00 GMT
 
-For more information on the ``expires`` header, go to `the specification`_
+For more information on the ``expires`` header, go to `the specification`_.
 
 .. _`RFC 1123`: http://tools.ietf.org/html/rfc1123#page-55
 .. _`the specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21
@@ -96,14 +101,26 @@ An ``etag`` or ``entity-tag`` in full is a unique identifier for a requested res
 
     ETag: 0800fc577294c34e0b28ad2839435945
 
-For more information on the ``expires`` header, go to `the etag specification`_
+For more information on the ``expires`` header, go to `the etag specification`_.
 
 .. _`the etag specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19
 
 Vary
 ....
 
-**TODO**
+The ``vary`` header is used to inform the caching mechanism(s) which header is used to differentiate a given cache.
+
+Imagine you have a want to cache a given resource, but each client should have a different cache, then you can specify the ``User-Agent`` in the ``vary`` header. As a result, the caching layer will create a new cached version of the response for each different User Agent.
+
+This comes in handy if you want to cache certain parts of your response differently because they depend for instance on a logged in user.
+
+.. code:: console
+
+    Vary: Cookie
+
+For more information on the ``vary`` header, go to `the vary specification`_.
+
+.. _`the vary specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.44
 
 Cookbook
 -----
