@@ -6,7 +6,9 @@ HTTP Cache notes
 Contributing
 -----
 
-**TODO**
+All contributions to this document are welcome. If you want to contribute, use the *fork-change-pr approach*.
+
+Currently all information is contained in this document. If the Cookbook_ section is growing too large, I may separate it into different sub documents.
 
 HTTP Cache Headers
 -----
