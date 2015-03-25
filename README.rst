@@ -100,11 +100,6 @@ For more information on the ``expires`` header, go to `the etag specification`_
 
 .. _`the etag specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19
 
-Pragma
-....
-
-**TODO**
-
 Vary
 ....
 
