@@ -70,12 +70,35 @@ When no ``s-maxage`` directive is available for the intermediarey cache, it will
 Expires
 ....
 
-**TODO**
+The ``expires`` header used to be **the** standard way of defining cache validity. On most modern caching systems, the ``cache-control`` header takes precedence over ``expires``.
+
+Some older systems may still use the ``expires`` header though, so it's always a good idea to provide it along with the ``cache-control`` headers for compatability purposes.
+
+The value of the ``expires`` header should be a valid `RFC 1123`_ date format. In PHP, you can use this DateTime constant: ``DateTime::RFC1123``
+
+.. code:: console
+
+    expires: Thu, 01 Dec 1994 16:00:00 GMT
+
+For more information on the ``expires`` header, go to `the specification`_
+
+.. _`RFC 1123`: http://tools.ietf.org/html/rfc1123#page-55
+.. _ `the specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21
 
 E-tag
 ....
 
-**TODO**
+An ``etag`` or ``entity-tag`` in full is a unique identifier for a requested resource. It usually is a hash of resource content, or a hash of the last time the resource was updated.
+
+``Etag`` headers can be used by the client to request a given resource, if the ``etag`` is different than the one it already has. It's up to the server to correctly generate an ``etag`` for the requested resource.
+
+.. code:: console
+
+    ETag: 0800fc577294c34e0b28ad2839435945
+
+For more information on the ``expires`` header, go to `the etag specification`_
+
+.. _ `the etag specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19
 
 Pragma
 ....
