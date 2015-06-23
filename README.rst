@@ -200,18 +200,18 @@ Cache Invalidation With Last-Modified
 
 4. Possible Response Headers
 
-    4.1 Response Headers if resource hasn't changed
+ 4.1 Response Headers if resource hasn't changed
 
-    .. code:: console
+.. code:: console
 
-        Status: 304 Not Modified
+    Status: 304 Not Modified
 
-    4.2 Response Headers if resource **has** changed
+ 4.2 Response Headers if resource **has** changed
 
-    .. code:: console
+.. code:: console
 
-        Last-Modified: Thu, 01 Dec 1994 16:05:00 GMT
-        Status: 200 OK
+    Last-Modified: Thu, 01 Dec 1994 16:05:00 GMT
+    Status: 200 OK
 
 Cache Invalidation With ETag
 ....
