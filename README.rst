@@ -13,6 +13,8 @@ Currently all information is contained in this document. If the Cookbook_ sectio
 HTTP Cache Headers
 -----
 
+Response Headers
+____
 
 Cache-control
 .....
@@ -81,7 +83,7 @@ The ``expires`` header used to be **the** standard way of defining cache validit
 
 Some older systems may still use the ``expires`` header though, so it's always a good idea to provide it along with the ``cache-control`` headers for compatability purposes.
 
-The value of the ``expires`` header should be a valid `RFC 1123`_ date format. In PHP, you can use this DateTime constant: ``DateTime::RFC1123``
+The value of the ``expires`` header should be a valid `RFC 7231`_ HTTP-date. In PHP, you can use this DateTime constant: ``DateTime::RFC1123``
 
 .. code:: console
 
@@ -89,7 +91,6 @@ The value of the ``expires`` header should be a valid `RFC 1123`_ date format. I
 
 For more information on the ``expires`` header, go to `the specification`_.
 
-.. _`RFC 1123`: http://tools.ietf.org/html/rfc1123#page-55
 .. _`the specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21
 
 E-tag
@@ -124,8 +125,59 @@ For more information on the ``vary`` header, go to `the vary specification`_.
 
 .. _`the vary specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.44
 
+Last-Modified
+....
+
+The ``Last-Modified`` header informs the client when the requested resource was last modified. This header can be used together with the If-Modified-Since_ Request header for cache invalidation. The value of the ``Last-Modified`` header is  a valid `RFC 7231`_ HTTP-date on which the resource was last modified.
+
+.. code:: console
+
+    Last-Modified: Thu, 01 Dec 1994 16:00:00 GMT
+
+.. _`RFC 7231`: https://tools.ietf.org/html/rfc7231#section-7.1.1.1
+
+Request Headers
+____
+
+If-Modified-Since
+....
+
+A client may send an ``If-Modified-Since`` header if it wants to be informed of the validity of its cache of the requested resource. If the requested resource was not modified since the specified datetime, a ``304 Not Modified`` status code should be returned, informing the client that the resource has not changed. The value of the ``If-Modified-Since`` header is a valid `RFC 7231`_ HTTP-date.
+
+Inspect this header if you want to use `Cache Invalidation With Last-Modified`_ on resources.
+
+.. code:: console
+
+    If-Modified-Since: Thu, 01 Dec 1994 16:00:00 GMT
+
+If-None-Match
+....
+
+Each resource content can uniquely defined by an `E-tag`_ header. A client may send an ``If-None-Match`` request to verify that the resource content is still valid. When that is the case, a ``304 Not Modified`` status code should be returned, informing the client that the resource content has not changed. 
+
+Inspect this header if you want to use `Cache Invalidation With ETag`_ on resources.
+
+.. code:: console
+
+    If-None-Match: 0800fc577294c34e0b28ad2839435945
+
+
 Cookbook
 -----
+
+Cache Invalidation
+____
+
+Cache invalidation is the act of informing a client that its cache of a requested resource is not valid anymore, thus prompting the client to refresh its cache, effectively transmitting the resource content again.
+
+Cache Invalidation With Last-Modified
+....
+
+**TODO**
+
+
+Cache Invalidation With ETag
+....
 
 **TODO**
 
