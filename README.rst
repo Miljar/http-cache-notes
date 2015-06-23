@@ -222,13 +222,13 @@ Cache Invalidation With Last-Modified
 
 4. Possible Response Headers
 
-I. Response Headers if resource hasn't changed
+a. Response Headers if resource hasn't changed
 
 .. code:: console
 
     Status: 304 Not Modified
 
-II. Response Headers if resource **has** changed
+b. Response Headers if resource **has** changed
 
 .. code:: console
 
