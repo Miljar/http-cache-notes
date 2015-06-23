@@ -93,7 +93,7 @@ For more information on the ``expires`` header, go to `the specification`_.
 
 .. _`the specification`: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21
 
-E-tag
+ETag
 ....
 
 An ``etag`` or ``entity-tag`` in full is a unique identifier for a requested resource. It usually is a hash of resource content, or a hash of the last time the resource was updated.
@@ -153,9 +153,9 @@ Inspect this header if you want to use `Cache Invalidation With Last-Modified`_ 
 If-None-Match
 ....
 
-Each resource content can uniquely defined by an `E-tag`_ header. A client may send an ``If-None-Match`` request to verify that the resource content is still valid. When that is the case, a ``304 Not Modified`` status code should be returned, informing the client that the resource content has not changed. 
+Each resource content can uniquely defined by an ETag_ header. A client may send an ``If-None-Match`` request to verify that the resource content is still valid. When that is the case, a ``304 Not Modified`` status code should be returned, informing the client that the resource content has not changed. 
 
-Inspect this header if you want to use `Cache Invalidation With ETag`_ on resources.
+Inspect this header if you want to use `Cache Invalidation With ETag`_ on resources.`
 
 .. code:: console
 
@@ -170,6 +170,10 @@ ____
 
 Cache invalidation is the act of informing a client that its cache of a requested resource is not valid anymore, thus prompting the client to refresh its cache, effectively transmitting the resource content again.
 
+The key approach here is that resources are cached for a short period of time. On each request to the resource, the client sends the appropriate headers to verify the cache validity. While the cache is valid, the response will inform the client that nothing has changed with a ``304 Not Modified`` status code. The client will then renew keep its cache of the resource for the specified amount of time.
+
+The main benefit of this approach is that with the short caching time, you are able to quickly serve new content for the requested resource. Responsability for a correct implementation lies both with the client who should send the correct headers as with the receiving end which should correctly respond to the provided `Request Headers`.
+
 Cache Invalidation With Last-Modified
 ....
 
@@ -181,3 +185,8 @@ Cache Invalidation With ETag
 
 **TODO**
 
+
+Cache Validation
+____
+
+**TODO**
