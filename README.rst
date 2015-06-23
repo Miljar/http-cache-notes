@@ -170,15 +170,47 @@ ____
 
 Cache invalidation is the act of informing a client that its cache of a requested resource is not valid anymore, thus prompting the client to refresh its cache, effectively transmitting the resource content again.
 
-The key approach here is that resources are cached for a short period of time. On each request to the resource, the client sends the appropriate headers to verify the cache validity. While the cache is valid, the response will inform the client that nothing has changed with a ``304 Not Modified`` status code. The client will then renew keep its cache of the resource for the specified amount of time.
+The key approach here is that resources are cached as long as they are valid. On each request to the resource, the client sends the appropriate headers to verify the cache validity. While the cache is valid, the response will inform the client that nothing has changed with a ``304 Not Modified`` status code. The client will then keep its cache of the resource.
 
-The main benefit of this approach is that with the short caching time, you are able to quickly serve new content for the requested resource. Responsability for a correct implementation lies both with the client who should send the correct headers as with the receiving end which should correctly respond to the provided `Request Headers`.
+The main benefit of this approach is that you are able to quickly serve new content for the requested resource. Responsability for a correct implementation lies both with the client who should send the correct headers as with the receiving end which should correctly respond to the provided `Request Headers`_.
+
+Disadvantages are the extra overhead on each request by transmitting headers. Both parties also have to correctly implement their headers.
+
+Cache Invalidation should be used on resource content which has a more dynamic nature. You want to prevent having to process each request fully on the server side, yet benefit from correctly updated content when necessary.
 
 Cache Invalidation With Last-Modified
 ....
 
-**TODO**
+1. Initial Request Headers
+   No caching headers should be transmitted to the receiving end.
 
+2. Initial Response Headers
+
+.. code:: console
+
+    Last-Modified: Thu, 01 Dec 1994 16:00:00 GMT
+    Status: 200 OK
+
+3. Subsequent Request Headers
+
+.. code:: console
+
+    If-Modified-Since: Thu, 01 Dec 1994 16:00:00 GMT
+
+4. Possible Response Headers
+
+4.1 Response Headers if resource hasn't changed
+
+.. code:: console
+
+    Status: 304 Not Modified
+
+4.2 Response Headers if resource **has** changed
+
+.. code:: console
+
+    Last-Modified: Thu, 01 Dec 1994 16:05:00 GMT
+    Status: 200 OK
 
 Cache Invalidation With ETag
 ....
@@ -186,7 +218,7 @@ Cache Invalidation With ETag
 **TODO**
 
 
-Cache Validation
+Cache Validation (or Cache Expiration)
 ____
 
 **TODO**
