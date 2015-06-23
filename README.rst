@@ -203,24 +203,24 @@ Cache Invalidation should be used on resource content which has a more dynamic n
 Cache Invalidation With Last-Modified
 ....
 
-1. Initial Request Headers
+**1. Initial Request Headers**
 
     No caching headers should be transmitted to the receiving end.
 
-2. Initial Response Headers
+**2. Initial Response Headers**
 
 .. code:: console
 
     Last-Modified: Thu, 01 Dec 1994 16:00:00 GMT
     Status: 200 OK
 
-3. Subsequent Request Headers
+**3. Subsequent Request Headers**
 
 .. code:: console
 
     If-Modified-Since: Thu, 01 Dec 1994 16:00:00 GMT
 
-4. Possible Response Headers
+**4. Possible Response Headers**
 
 a. Response Headers if resource hasn't changed
 
