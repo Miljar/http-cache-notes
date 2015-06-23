@@ -204,12 +204,10 @@ Cache Invalidation With Last-Modified
 ....
 
 1. Initial Request Headers
-""""
 
     No caching headers should be transmitted to the receiving end.
 
 2. Initial Response Headers
-""""
 
 .. code:: console
 
@@ -217,24 +215,20 @@ Cache Invalidation With Last-Modified
     Status: 200 OK
 
 3. Subsequent Request Headers
-""""
 
 .. code:: console
 
     If-Modified-Since: Thu, 01 Dec 1994 16:00:00 GMT
 
 4. Possible Response Headers
-""""
 
 4.1 Response Headers if resource hasn't changed
-''''
 
 .. code:: console
 
     Status: 304 Not Modified
 
 4.2 Response Headers if resource **has** changed
-''''
 
 .. code:: console
 
