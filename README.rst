@@ -182,7 +182,8 @@ Cache Invalidation With Last-Modified
 ....
 
 1. Initial Request Headers
-   No caching headers should be transmitted to the receiving end.
+
+    No caching headers should be transmitted to the receiving end.
 
 2. Initial Response Headers
 
